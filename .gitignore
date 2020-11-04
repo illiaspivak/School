@@ -1,0 +1,5 @@
+# IntelliJ:
+*.iml
+*.xml
+*.class
+.idea/
