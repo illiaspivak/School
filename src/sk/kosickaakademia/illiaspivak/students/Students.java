@@ -19,4 +19,20 @@ public class Students {
     public Gender getGender(){
         return id.charAt(2)<'2' ? Gender.Male:Gender.Female;
     }
+
+    public String getFirsName() {
+        return firsName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public int getAge() {
+        return age;
+    }
 }
