@@ -1,15 +1,19 @@
 package sk.kosickaakademia.illiaspivak.students;
 
 public class Students {
-    private String firsName;
-    private String lastName;
+    private String firsName; //имя
+    private String lastName; //фамилия
     private String id;
-    private int age;
+    private int age; //возраст
+    private double height; //высота
+    private int weight; //масса
 
-    public Students (String firsName, String lastName, String id){
+    public Students (String firsName, String lastName, String id, double height, int weight){
         this.firsName = firsName;
         this.lastName = lastName;
         this.id = id;
+        this.height = height;
+        this.weight = weight;
         setAge();
     }
 
@@ -34,5 +38,13 @@ public class Students {
 
     public int getAge() {
         return age;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }
