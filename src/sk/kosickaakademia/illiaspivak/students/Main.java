@@ -8,6 +8,13 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
+        Students[] array = null;
+        array = readStudentsFromFile(array);
+        printAllStudents(array); //вызываем функцию вывода студентов на консоль
+        printAllWomans(array); //вызываем функцию, которая выводит всех девушек
+    }
+    
+    private static Students[] readStudentsFromFile(Students[] array) {
         try{ //определяет блок кода, в котором может произойти исключение
             FileReader fr = new FileReader("resourse/students.dat"); //открыть файл
             String line; //количество строк в файле
@@ -15,7 +22,7 @@ public class Main {
             line=bf.readLine(); // считывает сколько строк в файле (это указано в первой строке
             int num =  Integer.parseInt(line); //переоброзовал кодличество строк в int
             System.out.println("Файл содержит " + num + " строк");
-            Students [] array = new Students[num]; //создаем массив студентов
+            array = new Students[num]; // присваиваем массиву размер
             for (int i=0;i<num;i++){
                 line=bf.readLine();
                 String[] temp = line.split(" "); // пробел разбивает наши слова на отдельные обьекты
@@ -24,8 +31,7 @@ public class Main {
                 Students s = new Students(temp[0],temp[1],temp[2],height,weight); //разбивает строку на три отдельные слова
                 array[i]=s; //пременную s вложили в массив
             }
-            printAllStudents(array); //вызываем функцию вывода студентов на консоль
-            printAllWomans(array); //вызываем функцию, которая выводит всех девушек
+
 
             fr.close(); // закрываем файл, который считывали
 
@@ -33,6 +39,7 @@ public class Main {
         }catch(IOException ex){ //определяет блок кода, в котором происходит обработка исключения;
             ex.printStackTrace(); //помогает понять, где на самом деле возникла проблема
         }
+        return array;
     }
 
     public static void printAllStudents (Students[] array){ //метод, который выводт в консоль всех студентов
