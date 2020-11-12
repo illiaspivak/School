@@ -7,6 +7,7 @@ public class Students {
     private int age; //возраст
     private double height; //высота
     private int weight; //масса
+    private Contact contact; // контакт студента
 
     public Students (String firsName, String lastName, String id, double height, int weight){
         this.firsName = firsName;
@@ -14,6 +15,7 @@ public class Students {
         this.id = id;
         this.height = height;
         this.weight = weight;
+        contact = null;
         setAge();
     }
 
