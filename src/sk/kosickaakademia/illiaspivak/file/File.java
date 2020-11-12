@@ -15,7 +15,14 @@ public class File {
 
             FileWriter fwriter = new FileWriter( file );
 
-            reader = new File
+            reader = new BufferedReader(fread);
+            String line;
+            while((line=reader.readLine())!=null){
+                line=line,toUpperCase();
+                System.out.println(Line);
+                fwriter.write(line+'');
+            }
+
         }
     }
 }
