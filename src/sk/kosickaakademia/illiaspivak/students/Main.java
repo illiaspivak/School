@@ -17,12 +17,13 @@ public class Main {
             System.out.println("Файл содержит " + num + " строк");
             Students [] array = new Students[num]; //создаем массив студентов
             for (int i=0;i<num;i++){
-                line=bf.readLine(); 
+                line=bf.readLine();
                 String[] temp = line.split(" "); // пробел разбивает наши слова на отдельные обьекты
                 Students s = new Students(temp[0],temp[1],temp[2]); //разбивает строку на три отдельные слова
                 array[i]=s; //пременную s вложили в массив
             }
             printAllStudents(array); //вызываем функцию вывода студентов на консоль
+            printAllWomans(array); //вызываем функцию, которая выводит всех девушек
 
             fr.close(); // закрываем файл, который считывали
 
@@ -33,9 +34,17 @@ public class Main {
     }
 
     public static void printAllStudents (Students[] array){ //метод, который выводт в консоль всех студентов
+        System.out.println("Vsetky studenty:");
         int len = array.length;
         for(int i=0; i<len; i++){
-            System.out.println(array[i].getFirsName() + " " + array[i].getLastName());
+            System.out.println("     " + array[i].getFirsName() + " " + array[i].getLastName());
         }
+    }
+    public static void printAllWomans (Students[] array){ //метод, который выводт в консоль всех студентов
+        System.out.println("Vsetky zeny:");
+       for(Students temp : array){
+           if(temp.getGender()==Gender.Female)
+               System.out.println("    " + temp.getFirsName()+" "+temp.getLastName());
+       }
     }
 }
